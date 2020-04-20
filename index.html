@@ -23,19 +23,19 @@
    </nav>
    <div class="container-fluid">
    	<div class="row">
-   		<div class="col-lg-6 col-lg-offset-2">
+   		<div class="col-lg-8 col-lg-offset-2">
    			<div class="row">
-   				<div class="col-lg-4" ng-repeat="band in bands">
+   				<div class="col-lg-6" ng-repeat="band in bands">
    					<div class="panel panel-default">
    						<div class="panel-heading">
    							<h3>{{band.name}}</h3>
    						</div>
    						<div class="panel-body">
                             <div class="row">
-                            	<div class="col-lg-4">
+                            	<div class="col-lg-6">
                             		<img ng-src="{{band.img_url}}" class="img-responsive img-thumbnail">
                             	</div>
-                            	<div class="col-lg-4">
+                            	<div class="col-lg-6">
                             		<p>{{band.info.substring(0,200)}}...</p>
                             	</div>
                             </div>
