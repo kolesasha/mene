@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bands">
+<head>
+	<meta charset="utf-8">
+	<title>angular aplikacija</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="app.js" charset="utf-8"></script>
+	<script src="controllersmain.js" charset="utf-8"></script>
+	<script src="servis.js" charset="utf-8"></script>
+</head>
+<body ng-controller="mainCtrl">
+   <nav class="navbar navbar-default">
+
+   	<div class="container-fluid">
+
+   		<a href="" class="navbar-brand">Rock Bands</a>
+   	</div>
+   </nav>
+   <div class="container-fluid">
+   	<div class="row">
+   		<div class="col-lg-6 col-lg-offset-2">
+   			<div class="row">
+   				<div class="col-lg-4" ng-repeat="band in bands">
+   					<div class="panel panel-default">
+   						<div class="panel-heading">
+   							<h3>{{band.name}}</h3>
+   						</div>
+   						<div class="panel-body">
+                            <div class="row">
+                            	<div class="col-lg-4">
+                            		<img ng-src="{{band.img_url}}" class="img-responsive img-thumbnail">
+                            	</div>
+                            	<div class="col-lg-4">
+                            		<p>{{band.info.substring(0,200)}}...</p>
+                            	</div>
+                            </div>
+   						</div>
+
+   						<div class="panel-footer text-right">
+   							<button class="btn btn-primary" ng-click="display(band)" data-toggle="modal" data-target="#myModal">Read more</button> <!-- povezivanje sa modal -->
+   						</div>
+   					</div>
+   				</div>
+   		</div>
+   		<div class="row">
+   			<div class="col-lg-6 col-lg-offset-2">
+   				<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{activeBand.name}}</h4>
+        <div class="row">
+        	<div class="col-lg-4">
+        		<img ng-src="{{activeBand.thumb1}}" class="img-responsive img-thumbnail">
+        	</div>
+        	
+        </div> 
+      </div>
+      <div class="modal-body">
+        <p>{{activeBand.info}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+   			</div>
+   		</div>
+   	</div>
+   </div>
+</div>
+</body>
+</html>
